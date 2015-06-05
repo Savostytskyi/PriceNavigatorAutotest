@@ -1,23 +1,34 @@
 package base;
 
 import core.driver.DriverInitializer;
-import org.openqa.selenium.WebDriver;
+import core.helpers.pagehelpers.PnMainHelper;
+import core.helpers.pagehelpers.PnRefrigeratorsHelper;
 import core.property.PropertyReader;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import pages.PnMainPage;
+import pages.PnRefrigeratorsPage;
 
 /**
  * Created by Anton_Savostytskyi on 02.06.2015.
  */
 
 public class BaseTest {
-    private static WebDriver driver;
+    protected WebDriver driver;
+
+    protected PnMainPage mainPage;
+    protected PnRefrigeratorsPage refrigeratorsPage;
+
+    protected PnMainHelper mainHelper;
+    protected PnRefrigeratorsHelper refrigeratorsHelper;
+
 
     @BeforeMethod
     protected void setupBeforeSuite() {
         driver = DriverInitializer.getWebFactoryInstance("firefox");
         driver.manage().window().maximize();
-        driver.get(PropertyReader.getInstance().getProperty("url"));
+        driver.get(PropertyReader.getInstance().getProperty("test.url"));
     }
 
     @AfterMethod
@@ -26,7 +37,7 @@ public class BaseTest {
             driver.quit();
     }
 
-    public static WebDriver getDriver() {
+    public WebDriver getDriver() {
         return driver;
     }
 

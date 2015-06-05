@@ -11,7 +11,7 @@ import java.util.Properties;
  */
 public class PropertyReader {
 
-    public static final String PROPERTY_FILE = "./pn.properties";
+    public static final String PROPERTY_FILE = "pn.properties";
     private static Properties properties;
 
 
