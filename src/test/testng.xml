@@ -5,6 +5,7 @@
         <classes>
             <class name="tests.SortTest"/>
             <class name="tests.ComparativeTest"/>
+            <class name="tests.FilterTest"/>
         </classes>
     </test>
 </suite>

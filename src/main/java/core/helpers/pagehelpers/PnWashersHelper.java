@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.PnWashersPage;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -20,15 +20,13 @@ public class PnWashersHelper {
         this.driver = driver;
     }
 
-    public PnWashersHelper checkThatFilterWorkCorrectly (PnWashersPage washersPage) {
+    public PnWashersHelper checkThatFilterWorkCorrectly(PnWashersPage washersPage) {
         List<Integer> goods = new ArrayList<Integer>();
         List<Integer> filtredGoods = new ArrayList<Integer>();
         selectCorrespondingPrices(goods, washersPage);
-        manualFilter(goods);
         washersPage.clickFilterOn();
+        manualFilter(goods);
         selectCorrespondingPrices(filtredGoods, washersPage);
-        System.out.println(goods.size());
-        System.out.println(filtredGoods.size());
         Assert.assertTrue(goods.containsAll(filtredGoods));
         Assert.assertTrue(goods.size() == filtredGoods.size());
         return new PnWashersHelper(driver);
@@ -42,17 +40,19 @@ public class PnWashersHelper {
         addToList(prices, washersPage);
     }
 
-    public void addToList (List<Integer> prices, PnWashersPage washersPage) {
+    public void addToList(List<Integer> prices, PnWashersPage washersPage) {
         for (WebElement price : washersPage.getPriceList()) {
             Integer goodsPrice = Integer.parseInt(price.getText().replaceAll("\\D", ""));
-                prices.add(goodsPrice);
-            }
+            prices.add(goodsPrice);
         }
+    }
 
-    public void manualFilter (List<Integer> prices) {
-        for (Integer price : prices) {
+    public void manualFilter(List<Integer> prices) {
+        Iterator<Integer> iteration = prices.iterator();
+        while (iteration.hasNext()) {
+            Integer price = iteration.next();
             if ((price < 3000) || (price > 6000)) {
-                prices.remove(price);
+                iteration.remove();
             }
         }
     }
