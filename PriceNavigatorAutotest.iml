@@ -28,7 +28,6 @@
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.1_3" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:2.45.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-htmlunit-driver:2.45.0" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit:2.15" level="project" />
     <orderEntry type="library" name="Maven: xalan:xalan:2.7.1" level="project" />
@@ -62,5 +61,7 @@
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-leg-rc:2.45.0" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.8" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
   </component>
 </module>

@@ -17,6 +17,8 @@ public class PnMainPage {
     }
 
     public final String NAVIGATE_TO_REFRIGERATORS = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[3]";
+    public final String NAVIGATE_TO_MICROWAVES = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[6]";
+    public final String NAVIGATE_TO_WASHERS = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[4]";
 
     @FindBy(xpath = NAVIGATE_TO_REFRIGERATORS)
     private WebElement refrigeratorsLink;
@@ -25,9 +27,33 @@ public class PnMainPage {
         return refrigeratorsLink;
     }
 
+    @FindBy(xpath = NAVIGATE_TO_MICROWAVES)
+    private WebElement microwavesLink;
+
+    public WebElement getMicrowavesLink() {
+        return microwavesLink;
+    }
+
+    @FindBy(xpath = NAVIGATE_TO_WASHERS)
+    private WebElement washersLink;
+
+    public WebElement getWashersLink() {
+        return washersLink;
+    }
+
+    public PnMicrowavesPage clickMicrowavesItem() {
+        getMicrowavesLink().click();
+        return new PnMicrowavesPage(driver);
+    }
+
     public PnRefrigeratorsPage clickRefrigeratorsItem() {
         getRefrigeratorsLink().click();
         return new PnRefrigeratorsPage(driver);
+    }
+
+    public PnWashersPage clickWashersItem() {
+        getWashersLink().click();
+        return new PnWashersPage(driver);
     }
 
 

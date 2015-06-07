@@ -38,39 +38,30 @@ public class WaitHelper {
         return false;
     }
 
-    public static boolean waitForElementIsClickable(WebElement webElement, WebDriver driver) {
+    public static void waitForElementIsClickable(WebElement webElement, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, SMALL_DELAY);
         try {
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
-            return true;
         } catch (NoSuchElementException e) {
-            return false;
         } catch (ElementNotVisibleException ex) {
-            return false;
         }
     }
 
-    public static boolean waitForElementVisible(WebElement webElement, WebDriver driver) {
+    public static void waitForElementVisible(WebElement webElement, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, SMALL_DELAY);
         try {
             wait.until(ExpectedConditions.visibilityOf(webElement));
-            return true;
         } catch (NoSuchElementException e) {
-            return false;
         } catch (ElementNotVisibleException ex) {
-            return false;
         }
     }
 
-    public static boolean waitForElements(List<WebElement> listWebElements, WebDriver driver) {
+    public static void waitForElements(List<WebElement> listWebElements, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, SMALL_DELAY);
         try {
             wait.until(ExpectedConditions.visibilityOfAllElements(listWebElements));
-            return true;
         } catch (NoSuchElementException e) {
-            return false;
         } catch (ElementNotVisibleException ex) {
-            return false;
         }
     }
 

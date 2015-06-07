@@ -11,24 +11,21 @@ import java.util.Properties;
  */
 public class PropertyReader {
 
-    public static final String PROPERTY_FILE = "pn.properties";
-    private static Properties properties;
 
+        public static final String TEST_PROPERTY_FILE = "D:\\IdeaProject\\PriceNavigatorAutotest\\pn.properties";
 
-    public static Properties getInstance() {
-        if (null == properties) {
-            properties = new Properties();
+        public static Properties getInstance() {
+            Properties properties = new Properties();
             InputStream is;
             try {
-                is = new FileInputStream(PROPERTY_FILE);
+                is = new FileInputStream(TEST_PROPERTY_FILE );
                 properties.load(is);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        return properties;
-    }
 
-}
+            return properties;
+        }
+    }
