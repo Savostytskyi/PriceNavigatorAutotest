@@ -41,8 +41,6 @@ public class BaseTest {
         driver = DriverInitializer.getWebFactoryInstance("firefox");
         driver.manage().window().maximize();
         driver.get(PropertyReader.getInstance().getProperty("test.url"));
-        String browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName().toLowerCase();
-        System.out.println(browserName);
     }
 
     @AfterSuite
