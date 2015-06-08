@@ -8,7 +8,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.io.File;
 import java.io.IOException;
 
-
 /**
  * Created by Anton_Savostytskyi on 02.06.2015.
  */

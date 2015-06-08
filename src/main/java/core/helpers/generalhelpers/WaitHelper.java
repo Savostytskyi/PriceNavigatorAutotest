@@ -77,7 +77,7 @@ public class WaitHelper {
         try {
             Thread.sleep(sec);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            logger.error("Elements not visible");
         }
     }
 }

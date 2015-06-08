@@ -2,13 +2,9 @@ package tests;
 
 import base.BaseTest;
 import core.helpers.pagehelpers.PnMainHelper;
-import core.helpers.pagehelpers.PnRefrigeratorsHelper;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 import pages.PnMainPage;
 import pages.PnRefrigeratorsPage;
-
-import java.util.List;
 
 /**
  * Created by Anton_Savostytskyi on 05.06.2015.

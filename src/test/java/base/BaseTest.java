@@ -4,9 +4,13 @@ import core.driver.DriverInitializer;
 import core.helpers.pagehelpers.*;
 import core.property.PropertyReader;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Anton_Savostytskyi on 02.06.2015.
@@ -21,6 +25,7 @@ public class BaseTest {
     protected ComparePage comparePage;
     protected PnWashersPage washersPage;
     protected PnBreadMakerPage breadMakerPage;
+    protected PnAirConditionedPage airConditionedPage;
 
     protected PnMainHelper mainHelper;
     protected PnRefrigeratorsHelper refrigeratorsHelper;
@@ -28,6 +33,7 @@ public class BaseTest {
     protected CompareHelper compareHelper;
     protected PnWashersHelper washersHelper;
     protected PnBreadMakerHelper breadMakerHelper;
+    protected PnAirConditionedHelper airConditionedHelper;
 
 
     @BeforeMethod
@@ -35,12 +41,20 @@ public class BaseTest {
         driver = DriverInitializer.getWebFactoryInstance("firefox");
         driver.manage().window().maximize();
         driver.get(PropertyReader.getInstance().getProperty("test.url"));
+        String browserName = ((RemoteWebDriver) driver).getCapabilities().getBrowserName().toLowerCase();
+        System.out.println(browserName);
     }
 
     @AfterSuite
-    protected void tearDown() {
-        if (driver != null)
-            driver.quit();
+    protected void tearDown() throws IOException, InterruptedException {
+        if (driver != null) {
+            if (((RemoteWebDriver) driver).getCapabilities().getBrowserName().toLowerCase().equals("firefox")) {
+                Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
+                Thread.sleep(5000);
+                Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
+                Runtime.getRuntime().exec("taskkill /F /IM WerFault.exe");
+            } else driver.quit();
+        }
     }
 }
 
