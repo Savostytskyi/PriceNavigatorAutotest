@@ -19,6 +19,7 @@ public class PnMainPage {
     public final String NAVIGATE_TO_REFRIGERATORS = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[3]";
     public final String NAVIGATE_TO_MICROWAVES = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[6]";
     public final String NAVIGATE_TO_WASHERS = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[4]";
+    public final String NAVIGATE_TO_BREADMAKERS = "//div[@class='home-page-cloud']//h1[3]//following-sibling::a[9]";
 
     @FindBy(xpath = NAVIGATE_TO_REFRIGERATORS)
     private WebElement refrigeratorsLink;
@@ -41,6 +42,13 @@ public class PnMainPage {
         return washersLink;
     }
 
+    @FindBy(xpath = NAVIGATE_TO_BREADMAKERS)
+    private WebElement breadMakersLink;
+
+    public WebElement getBreadMakersLink() {
+        return breadMakersLink;
+    }
+
     public PnMicrowavesPage clickMicrowavesItem() {
         getMicrowavesLink().click();
         return new PnMicrowavesPage(driver);
@@ -54,6 +62,11 @@ public class PnMainPage {
     public PnWashersPage clickWashersItem() {
         getWashersLink().click();
         return new PnWashersPage(driver);
+    }
+
+    public PnBreadMakerPage clickBreadMakerItem() {
+        getBreadMakersLink().click();
+        return new PnBreadMakerPage(driver);
     }
 
 

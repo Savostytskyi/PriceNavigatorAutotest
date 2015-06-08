@@ -1,5 +1,6 @@
 package core.helpers.generalhelpers;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public class WaitHelper {
     public static final int SMALL_DELAY = 5000;
     public static final int MIDDLE_DELAY = 15000;
     public static final int LONG_DELAY = 30000;
+    private static Logger logger = Logger.getLogger(WaitHelper.class);
 
     public static boolean waitForElement(WebElement webElement, int milliseconds, WebDriver driver) {
         for (int i = 0; i < milliseconds; i += HALF_SECOND_DELAY) {
@@ -43,7 +45,9 @@ public class WaitHelper {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (NoSuchElementException e) {
+            logger.error("No such element with tag name: "+webElement.getTagName());
         } catch (ElementNotVisibleException ex) {
+            logger.error("Element not visible with tag name: "+webElement.getTagName());
         }
     }
 
@@ -52,7 +56,9 @@ public class WaitHelper {
         try {
             wait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (NoSuchElementException e) {
+            logger.error("No such element with tag name: "+webElement.getTagName());
         } catch (ElementNotVisibleException ex) {
+            logger.error("Element not visible with tag name: "+webElement.getTagName());
         }
     }
 
@@ -61,7 +67,9 @@ public class WaitHelper {
         try {
             wait.until(ExpectedConditions.visibilityOfAllElements(listWebElements));
         } catch (NoSuchElementException e) {
+            logger.error("No such elements");
         } catch (ElementNotVisibleException ex) {
+            logger.error("Elements not visible");
         }
     }
 

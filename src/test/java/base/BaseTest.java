@@ -20,17 +20,19 @@ public class BaseTest {
     protected PnMicrowavesPage microwavePage;
     protected ComparePage comparePage;
     protected PnWashersPage washersPage;
+    protected PnBreadMakerPage breadMakerPage;
 
     protected PnMainHelper mainHelper;
     protected PnRefrigeratorsHelper refrigeratorsHelper;
     protected PnMicrowavesHelper microwaveHelper;
     protected CompareHelper compareHelper;
     protected PnWashersHelper washersHelper;
+    protected PnBreadMakerHelper breadMakerHelper;
 
 
     @BeforeMethod
     protected void setupBeforeSuite() {
-        driver = DriverInitializer.getWebFactoryInstance("ie");
+        driver = DriverInitializer.getWebFactoryInstance("firefox");
         driver.manage().window().maximize();
         driver.get(PropertyReader.getInstance().getProperty("test.url"));
     }

@@ -1,6 +1,7 @@
 package core.helpers.pagehelpers;
 
 import core.helpers.generalhelpers.VerifyHelper;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,20 +16,23 @@ import java.util.List;
  */
 public class PnWashersHelper {
     private WebDriver driver;
+    private static Logger logger = Logger.getLogger(PnWashersHelper.class);
 
     public PnWashersHelper(WebDriver driver) {
         this.driver = driver;
     }
 
-    public PnWashersHelper checkThatFilterWorkCorrectly(PnWashersPage washersPage) {
+    public PnWashersHelper checkThatFilterByPriceWorkCorrectly(PnWashersPage washersPage) {
         List<Integer> goods = new ArrayList<Integer>();
         List<Integer> filtredGoods = new ArrayList<Integer>();
         selectCorrespondingPrices(goods, washersPage);
         washersPage.clickFilterOn();
         manualFilter(goods);
         selectCorrespondingPrices(filtredGoods, washersPage);
-        Assert.assertTrue(goods.containsAll(filtredGoods));
-        Assert.assertTrue(goods.size() == filtredGoods.size());
+        logger.info("Goods that corresponding prices using manual filter: "+goods.size()+" items");
+        logger.info("Goods that corresponding prices adjustment using web page filter: "+filtredGoods.size()+" items");
+        Assert.assertTrue(goods.containsAll(filtredGoods), "Assert that all the products with corresponded prices are selected");
+        Assert.assertTrue(goods.size() == filtredGoods.size(), "Check that there are no extra items");
         return new PnWashersHelper(driver);
     }
 

@@ -22,7 +22,7 @@ public class PnMainHelper {
     }
 
     public PnMicrowavesHelper navigateToMicrowaves(PnMainPage main) {
-        WaitHelper.waitForElementIsClickable(main.getRefrigeratorsLink(), driver);
+        WaitHelper.waitForElementIsClickable(main.getMicrowavesLink(), driver);
         main.clickMicrowavesItem();
         return new PnMicrowavesHelper(driver);
     }
@@ -31,5 +31,11 @@ public class PnMainHelper {
         WaitHelper.waitForElementIsClickable(main.getWashersLink(), driver);
         main.clickWashersItem();
         return new PnWashersHelper(driver);
+    }
+
+    public PnBreadMakerHelper navigateToBreadMakers(PnMainPage main) {
+        WaitHelper.waitForElementIsClickable(main.getBreadMakersLink(), driver);
+        main.clickBreadMakerItem();
+        return new PnBreadMakerHelper(driver);
     }
 }

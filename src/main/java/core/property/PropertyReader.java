@@ -12,7 +12,7 @@ import java.util.Properties;
 public class PropertyReader {
 
 
-        public static final String TEST_PROPERTY_FILE = "D:\\IdeaProject\\PriceNavigatorAutotest\\pn.properties";
+        public static final String TEST_PROPERTY_FILE = "D:\\intellij\\PriceNavigatorAutotest\\pn.properties";
 
         public static Properties getInstance() {
             Properties properties = new Properties();
