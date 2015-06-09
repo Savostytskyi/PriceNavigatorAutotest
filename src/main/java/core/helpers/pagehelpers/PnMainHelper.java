@@ -38,4 +38,10 @@ public class PnMainHelper {
         main.clickBreadMakerItem();
         return new PnBreadMakerHelper(driver);
     }
+
+    public PnAirConditionedHelper navigateAirConditioned(PnMainPage main) {
+        WaitHelper.waitForElementIsClickable(main.getAirConditionedLink(), driver);
+        main.getAirConditionedLink().click();
+        return new PnAirConditionedHelper(driver);
+    }
 }

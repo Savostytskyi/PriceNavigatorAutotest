@@ -4,7 +4,6 @@ import core.helpers.generalhelpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.PnMicrowavesPage;
-import pages.PnRefrigeratorsPage;
 
 /**
  * Created by Savostytskyi Anton on 07.06.2015.
@@ -22,6 +21,7 @@ public class PnMicrowavesHelper {
         microwavesPage.clickAddToComperetive();
         WaitHelper.waitForElementIsClickable(microwavesPage.getRedirectToComparative(), driver);
         microwavesPage.clickRedirectToCompare();
+        WaitHelper.delay(2000);
         return new CompareHelper(driver);
     }
 

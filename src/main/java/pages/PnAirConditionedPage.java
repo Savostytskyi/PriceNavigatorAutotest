@@ -13,7 +13,7 @@ import java.util.List;
 public class PnAirConditionedPage {
     private WebDriver driver;
 
-    public final String CONDITIONERS_NAME = "(//div[@class='name'])[position()<6]";
+    public final String CONDITIONERS_NAME = "(//div[@class='name']//a)[position()<6]";
     public final String CONDITIONERS_DESCRIPTION = "(//div[@class='description'])[position()<6]";
 
     public PnAirConditionedPage(WebDriver driver) {

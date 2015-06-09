@@ -13,7 +13,7 @@ import java.util.List;
 public class PnGoodsInfoPage {
     private WebDriver driver;
 
-    public final String ALL_GOODS_INFO = "//div[@class='row']//span[2]";
+    public final String ALL_GOODS_INFO = "//div[@class='row']//span";
 
     public PnGoodsInfoPage(WebDriver driver) {
         this.driver = driver;

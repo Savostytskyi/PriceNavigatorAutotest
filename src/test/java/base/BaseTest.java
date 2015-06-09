@@ -9,7 +9,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -26,6 +25,7 @@ public class BaseTest {
     protected PnWashersPage washersPage;
     protected PnBreadMakerPage breadMakerPage;
     protected PnAirConditionedPage airConditionedPage;
+    protected PnGoodsInfoPage goodsInfoPage;
 
     protected PnMainHelper mainHelper;
     protected PnRefrigeratorsHelper refrigeratorsHelper;
@@ -34,11 +34,12 @@ public class BaseTest {
     protected PnWashersHelper washersHelper;
     protected PnBreadMakerHelper breadMakerHelper;
     protected PnAirConditionedHelper airConditionedHelper;
+    protected PnGoodsInfoHelper goodsInfoHelper;
 
 
     @BeforeMethod
     protected void setupBeforeSuite() {
-        driver = DriverInitializer.getWebFactoryInstance("firefox");
+        driver = DriverInitializer.getWebFactoryInstance("ie");
         driver.manage().window().maximize();
         driver.get(PropertyReader.getInstance().getProperty("test.url"));
     }

@@ -1,6 +1,7 @@
 package core.helpers.pagehelpers;
 
 import core.helpers.generalhelpers.VerifyHelper;
+import core.property.PropertyReader;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -81,13 +82,11 @@ public class PnBreadMakerHelper {
         }
     }
 
-
-
     public void manualFilterByBrand(List<String> brands) {
         Iterator<String> iteration = brands.iterator();
         while (iteration.hasNext()) {
             String brand = iteration.next();
-            if (!brand.contains("Gorenje")) {
+            if (!brand.contains(PropertyReader.getInstance().getProperty("breadmaker.brand"))) {
                 iteration.remove();
             }
         }

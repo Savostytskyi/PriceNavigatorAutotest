@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +23,7 @@ public class WaitHelper {
     public static final int MIDDLE_DELAY = 15000;
     public static final int LONG_DELAY = 30000;
     private static Logger logger = Logger.getLogger(WaitHelper.class);
+    public static String currentPageState="";
 
     public static boolean waitForElement(WebElement webElement, int milliseconds, WebDriver driver) {
         for (int i = 0; i < milliseconds; i += HALF_SECOND_DELAY) {
