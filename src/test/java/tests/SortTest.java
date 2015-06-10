@@ -11,7 +11,6 @@ import pages.PnRefrigeratorsPage;
  */
 public class SortTest extends BaseTest {
 
-
     @BeforeMethod(dependsOnMethods = "setupBeforeSuite")
     public void setUpConfiguration() {
         mainPage = new PnMainPage(driver);
@@ -36,8 +35,7 @@ public class SortTest extends BaseTest {
 
 
     @AfterMethod
-    public void goBack() {
-      //  refrigeratorsHelper.navigateToMainPage(refrigeratorsPage);
+    public void goBack() throws InterruptedException {
     }
 
 

@@ -28,6 +28,7 @@ public class ComparativeTest extends BaseTest {
    @Test
     public void checkSortByPrice() {
         compareHelper
+                .isGoodsAdded(comparePage.getGoodsTitles(), microwaveHelper)
                 .isAllPropertiesPresent(comparePage.getGoodsProperties())
                 .isElementsHaveCorrectColor(comparePage.getGoodsTableRows());
     }

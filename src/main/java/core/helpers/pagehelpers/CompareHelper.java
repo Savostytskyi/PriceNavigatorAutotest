@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import pages.PnMicrowavesPage;
+
 import java.util.List;
 
 /**
@@ -16,6 +18,16 @@ public class CompareHelper {
     public CompareHelper(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public CompareHelper isGoodsAdded(List<WebElement> titles, PnMicrowavesHelper microwavesHelper) {
+        if (titles.size()<2) {
+            driver.navigate().back();
+            microwavesHelper.removeGoodsFromCompare(new PnMicrowavesPage(driver));
+            driver.navigate().forward();
+            isGoodsAdded(titles, microwavesHelper);
+        }
+        return new CompareHelper(driver);
     }
 
     public CompareHelper isAllPropertiesPresent(List<WebElement> properties) {

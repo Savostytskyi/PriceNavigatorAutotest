@@ -15,6 +15,7 @@ import java.util.List;
  * Created by Savostytskyi Anton on 08.06.2015.
  */
 public class PnAirConditionedHelper {
+
     private WebDriver driver;
 
     public PnAirConditionedHelper(WebDriver driver) {
@@ -49,8 +50,8 @@ public class PnAirConditionedHelper {
             fullInfo.addAll(goToFullDescription(airConditionedPage.getConditionersNames().get(i), goodsInfoPage).getFullDescription(goodsInfoPage));
             driver.navigate().back();
         }
-        System.out.println(shortInfo);
-        System.out.println(fullInfo);
+      //  System.out.println(shortInfo);
+      //  System.out.println(fullInfo);
         Assert.assertTrue(fullInfo.containsAll(shortInfo));
     }
 

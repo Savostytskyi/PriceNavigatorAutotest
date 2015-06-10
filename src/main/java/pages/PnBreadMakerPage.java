@@ -15,7 +15,7 @@ public class PnBreadMakerPage {
 
     public final String NAME_LIST = "//div[@class='name']//a";
     public final String NEXT_PAGE_BUTTON = "(//ul[@class='pager']//li[@class='pager-next']/a)[1]";
-    public final String FILTER_BY_BRAND = "(//div[@class='is_empty_items']/a[7])[1]";
+    public final String FILTER_BY_BRAND = "(//div[@class='is_empty_items']/a[8])[1]";
     public final String FILTER_BY_WEIGHT_ADJUSTMENT = "(//div[@class='is_empty_items']/a[2])[8]";
     public final String DESCRIPTION_LIST = "//div[@class='item']//div[@class='description']";
 

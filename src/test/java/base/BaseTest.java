@@ -4,7 +4,6 @@ import core.driver.DriverInitializer;
 import core.helpers.pagehelpers.*;
 import core.property.PropertyReader;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -34,12 +33,10 @@ public class BaseTest {
     protected PnWashersHelper washersHelper;
     protected PnBreadMakerHelper breadMakerHelper;
     protected PnAirConditionedHelper airConditionedHelper;
-    protected PnGoodsInfoHelper goodsInfoHelper;
-
 
     @BeforeMethod
     protected void setupBeforeSuite() {
-        driver = DriverInitializer.getWebFactoryInstance("ie");
+        driver = DriverInitializer.getWebFactoryInstance("chrome");
         driver.manage().window().maximize();
         driver.get(PropertyReader.getInstance().getProperty("test.url"));
     }
@@ -47,12 +44,7 @@ public class BaseTest {
     @AfterSuite
     protected void tearDown() throws IOException, InterruptedException {
         if (driver != null) {
-            if (((RemoteWebDriver) driver).getCapabilities().getBrowserName().toLowerCase().equals("firefox")) {
-                Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
-                Thread.sleep(5000);
-                Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
-                Runtime.getRuntime().exec("taskkill /F /IM WerFault.exe");
-            } else driver.quit();
+             driver.quit();
         }
     }
 }

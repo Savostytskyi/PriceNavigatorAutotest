@@ -15,6 +15,7 @@ public class ComparePage {
 
     public final String GOODS_PROPERTIES = "//table[@class='compare']//td[position() >1]";
     public final String GOODS_TABLE_ROWS = "//table[@class='compare']//td[position() >1]//.. | //table[@class='compare']//td[position() >1]";
+    public final String GOODS_TITLES = "//table[@class='compare']//th[@class='row-2']/a";
 
     public ComparePage(WebDriver driver) {
         this.driver = driver;
@@ -35,5 +36,10 @@ public class ComparePage {
         return goodsTableRows;
     }
 
+    @FindBy(xpath = GOODS_TITLES)
+    private List<WebElement> goodsTitles;
 
+    public List<WebElement> getGoodsTitles() {
+        return goodsTitles;
+    }
 }
