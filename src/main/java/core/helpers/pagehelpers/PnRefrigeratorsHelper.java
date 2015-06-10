@@ -5,23 +5,17 @@ import core.helpers.generalhelpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import pages.PnRefrigeratorsPage;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Anton_Savostytskyi on 05.06.2015.
+ * @author Anton_Savostytskyi on 05.06.2015.
  */
 public class PnRefrigeratorsHelper {
     private WebDriver driver;
     public PnRefrigeratorsHelper(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public PnMainHelper navigateToMainPage(PnRefrigeratorsPage refrigerators) {
-        WaitHelper.waitForElementVisible(refrigerators.getToMainPageLink(), driver);
-        refrigerators.clickBackToMainPage();
-        return new PnMainHelper(driver);
     }
 
     public PnRefrigeratorsHelper sortRefrigeratorsByParameter(WebElement parameter) {

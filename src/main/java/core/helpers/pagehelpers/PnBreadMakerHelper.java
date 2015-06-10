@@ -8,15 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.PnBreadMakerPage;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by Anton_Savostytskyi on 08.06.2015.
+ * @author Anton_Savostytskyi on 08.06.2015.
  */
+
 public class PnBreadMakerHelper {
+
     private WebDriver driver;
     private static Logger logger = Logger.getLogger(PnBreadMakerHelper.class);
 
@@ -26,29 +27,29 @@ public class PnBreadMakerHelper {
 
     public PnBreadMakerHelper checkThatFilterByBrandWorkCorrectly(PnBreadMakerPage breadMakerPage) {
         List<String> goods = new ArrayList<String>();
-        List<String> filtredGoods = new ArrayList<String>();
+        List<String> filteredGoods = new ArrayList<String>();
         selectCorrespondingBrand(goods, breadMakerPage);
         breadMakerPage.clickFilterByBrandOn();
         manualFilterByBrand(goods);
-        selectCorrespondingBrand(filtredGoods, breadMakerPage);
+        selectCorrespondingBrand(filteredGoods, breadMakerPage);
         logger.info("Goods that corresponding brand using manual filter: "+goods.size()+" items");
-        logger.info("Goods that corresponding brang using web page filter: "+filtredGoods.size()+" items");
-        Assert.assertTrue(goods.containsAll(filtredGoods), "Assert that all the products of this brand are selected");
-        Assert.assertTrue(goods.size() == filtredGoods.size(), "Check that there are no extra items");
+        logger.info("Goods that corresponding brang using web page filter: "+filteredGoods.size()+" items");
+        Assert.assertTrue(goods.containsAll(filteredGoods), "Assert that all the products of this brand are selected");
+        Assert.assertTrue(goods.size() == filteredGoods.size(), "Check that there are no extra items");
         return new PnBreadMakerHelper(driver);
     }
 
     public PnBreadMakerHelper checkThatFilterByWeightAdjustmentWorkCorrectly(PnBreadMakerPage breadMakerPage) {
         List<String> goods = new ArrayList<String>();
-        List<String> filtredGoods = new ArrayList<String>();
+        List<String> filteredGoods = new ArrayList<String>();
         selectCorrespondingWeight(goods, breadMakerPage);
         breadMakerPage.clickFilterByWeightAdjustment();
         manualFilterByWeightAdjustment(goods);
-        selectCorrespondingWeight(filtredGoods, breadMakerPage);
+        selectCorrespondingWeight(filteredGoods, breadMakerPage);
         logger.info("Goods that corresponding weight adjustment using manual filter: "+goods.size()+" items");
-        logger.info("Goods that corresponding weight adjustment using web page filter: "+filtredGoods.size()+" items");
-        Assert.assertTrue(goods.containsAll(filtredGoods), "Assert that all the products with weight adjustment are selected");
-        Assert.assertTrue(goods.size() == filtredGoods.size(), "Check that there are no extra items");
+        logger.info("Goods that corresponding weight adjustment using web page filter: "+filteredGoods.size()+" items");
+        Assert.assertTrue(goods.containsAll(filteredGoods), "Assert that all the products with weight adjustment are selected");
+        Assert.assertTrue(goods.size() == filteredGoods.size(), "Check that there are no extra items");
         return new PnBreadMakerHelper(driver);
     }
 

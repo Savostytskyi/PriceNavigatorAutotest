@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by Anton_Savostytskyi on 05.06.2015.
+ * @author Anton_Savostytskyi on 08.06.2015.
  */
 public class PnMainPage {
     private WebDriver driver;

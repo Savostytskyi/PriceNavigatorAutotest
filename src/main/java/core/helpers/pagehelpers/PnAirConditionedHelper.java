@@ -6,13 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.PnAirConditionedPage;
 import pages.PnGoodsInfoPage;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Savostytskyi Anton on 08.06.2015.
+ * @author Anton_Savostytskyi on 08.06.2015.
  */
 public class PnAirConditionedHelper {
 
@@ -20,23 +19,6 @@ public class PnAirConditionedHelper {
 
     public PnAirConditionedHelper(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public PnAirConditionedHelper getShortInfo(PnAirConditionedPage airConditionedPage) {
-        WaitHelper.waitForElements(airConditionedPage.getConditionersDescription(), driver);
-        for (WebElement description: airConditionedPage.getConditionersDescription()) {
-            System.out.println(description.getText());
-        }
-        return new PnAirConditionedHelper(driver);
-    }
-
-    public PnGoodsInfoHelper getFullDescription(PnAirConditionedPage airConditionedPage) {
-        WaitHelper.waitForElements(airConditionedPage.getConditionersNames(), driver);
-        for (WebElement description: airConditionedPage.getConditionersNames()) {
-            description.click();
-            new PnGoodsInfoHelper(driver);
-        }
-        return new PnGoodsInfoHelper(driver);
     }
 
     public void checkThatInformationCorrect (PnAirConditionedPage airConditionedPage, PnGoodsInfoPage goodsInfoPage) {
@@ -47,15 +29,13 @@ public class PnAirConditionedHelper {
         for (int i=0; i< airConditionedPage.getConditionersNames().size(); i++) {
             shortInfo.addAll(Arrays.asList(airConditionedPage.getConditionersDescription().get(i).getText().toLowerCase().replaceAll("\\p{P}", "").split(" ")));
             shortInfo.remove("помещение");
-            fullInfo.addAll(goToFullDescription(airConditionedPage.getConditionersNames().get(i), goodsInfoPage).getFullDescription(goodsInfoPage));
+            fullInfo.addAll(goToFullDescription(airConditionedPage.getConditionersNames().get(i)).getFullDescription(goodsInfoPage));
             driver.navigate().back();
         }
-      //  System.out.println(shortInfo);
-      //  System.out.println(fullInfo);
         Assert.assertTrue(fullInfo.containsAll(shortInfo));
     }
 
-    public PnGoodsInfoHelper goToFullDescription(WebElement goodsName, PnGoodsInfoPage goodsInfoPage) {
+    public PnGoodsInfoHelper goToFullDescription(WebElement goodsName) {
         goodsName.click();
         return new PnGoodsInfoHelper(driver);
     }

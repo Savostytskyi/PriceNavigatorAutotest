@@ -1,9 +1,7 @@
 package core.helpers.pagehelpers;
 
-import core.helpers.generalhelpers.WaitHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.PnAirConditionedPage;
 import pages.PnGoodsInfoPage;
 
 import java.util.ArrayList;
@@ -11,21 +9,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Savostytskyi Anton on 08.06.2015.
+ * @author Anton_Savostytskyi on 08.06.2015.
  */
 public class PnGoodsInfoHelper {
     private WebDriver driver;
 
     public PnGoodsInfoHelper(WebDriver driver) {
         this.driver = driver;
-    }
-
-    public PnAirConditionedHelper getShortInfo(PnAirConditionedPage airConditionedPage) {
-        WaitHelper.waitForElements(airConditionedPage.getConditionersDescription(), driver);
-        for (WebElement description: airConditionedPage.getConditionersDescription()) {
-            System.out.println(description.getText());
-        }
-        return new PnAirConditionedHelper(driver);
     }
 
     public List<String> getFullDescription(PnGoodsInfoPage goodsInfoPage) {

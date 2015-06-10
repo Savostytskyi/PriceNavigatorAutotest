@@ -10,7 +10,7 @@ import pages.PnMainPage;
 import pages.PnMicrowavesPage;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
 
 public class ComparativeTest extends BaseTest {

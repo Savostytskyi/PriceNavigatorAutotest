@@ -8,8 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
+
 public class ComparePage {
     private WebDriver driver;
 

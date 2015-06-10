@@ -10,8 +10,9 @@ import pages.PnMainPage;
 import pages.PnWashersPage;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
+
 public class FilterTest extends BaseTest {
 
 
@@ -21,7 +22,6 @@ public class FilterTest extends BaseTest {
         washersPage =  new PnWashersPage(driver);
         mainHelper = new PnMainHelper(driver);
         breadMakerPage = new PnBreadMakerPage(driver);
-
     }
 
     @Test

@@ -7,16 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
-
 import java.io.IOException;
 
 /**
- * Created by Anton_Savostytskyi on 02.06.2015.
+ * @author Anton_Savostytskyi on 02.06.2015.
  */
 
 public class BaseTest {
-    protected WebDriver driver;
 
+    protected WebDriver driver;
     protected PnMainPage mainPage;
     protected PnRefrigeratorsPage refrigeratorsPage;
     protected PnMicrowavesPage microwavePage;

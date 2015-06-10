@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
+
 public class PnWashersPage {
     private WebDriver driver;
 
@@ -17,7 +17,6 @@ public class PnWashersPage {
     public final String NEXT_PAGE_BUTTON = "(//ul[@class='pager']//li[@class='pager-next']/a)[1]";
     public final String MIN_BORDER_FILTER = "(//div[@class='is_empty_items']//a[1])[1]";
     public final String MAX_BORDER_FILTER = "(//div[@class='is_empty_items']//a[1])[2]";
-
 
     public PnWashersPage(WebDriver driver) {
         this.driver = driver;

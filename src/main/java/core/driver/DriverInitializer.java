@@ -9,9 +9,11 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by Anton_Savostytskyi on 02.06.2015.
+ * @author Anton_Savostytskyi on 02.06.2015.
  */
+
 public class DriverInitializer {
+
     private static WebDriver DRIVER;
 
     private static WebDriver getDriver(String browserName) {

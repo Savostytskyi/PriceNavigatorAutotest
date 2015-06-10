@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import pages.PnMicrowavesPage;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
 public class PnMicrowavesHelper {
     private WebDriver driver;

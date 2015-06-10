@@ -3,13 +3,11 @@ package core.helpers.generalhelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
-
 import static org.testng.util.Strings.isNullOrEmpty;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 02.06.2015.
  */
 public class VerifyHelper {
 

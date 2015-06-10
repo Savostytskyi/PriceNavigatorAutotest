@@ -7,8 +7,9 @@ import pages.PnMainPage;
 import pages.PnRefrigeratorsPage;
 
 /**
- * Created by Anton_Savostytskyi on 05.06.2015.
+ * @author Anton_Savostytskyi on 05.06.2015.
  */
+
 public class SortTest extends BaseTest {
 
     @BeforeMethod(dependsOnMethods = "setupBeforeSuite")
@@ -33,10 +34,7 @@ public class SortTest extends BaseTest {
                 .checkTheSortionByName(refrigeratorsPage.getNameList());
     }
 
-
     @AfterMethod
-    public void goBack() throws InterruptedException {
+    public void goBack() {
     }
-
-
 }

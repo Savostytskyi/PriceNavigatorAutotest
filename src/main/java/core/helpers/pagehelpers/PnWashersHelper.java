@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by Savostytskyi Anton on 07.06.2015.
+ * @author Anton_Savostytskyi on 07.06.2015.
  */
 public class PnWashersHelper {
     private WebDriver driver;
@@ -24,15 +24,15 @@ public class PnWashersHelper {
 
     public PnWashersHelper checkThatFilterByPriceWorkCorrectly(PnWashersPage washersPage) {
         List<Integer> goods = new ArrayList<Integer>();
-        List<Integer> filtredGoods = new ArrayList<Integer>();
+        List<Integer> filteredGoods = new ArrayList<Integer>();
         selectCorrespondingPrices(goods, washersPage);
         washersPage.clickFilterOn();
         manualFilter(goods);
-        selectCorrespondingPrices(filtredGoods, washersPage);
+        selectCorrespondingPrices(filteredGoods, washersPage);
         logger.info("Goods that corresponding prices using manual filter: "+goods.size()+" items");
-        logger.info("Goods that corresponding prices adjustment using web page filter: "+filtredGoods.size()+" items");
-        Assert.assertTrue(goods.containsAll(filtredGoods), "Assert that all the products with corresponded prices are selected");
-        Assert.assertTrue(goods.size() == filtredGoods.size(), "Check that there are no extra items");
+        logger.info("Goods that corresponding prices adjustment using web page filter: "+filteredGoods.size()+" items");
+        Assert.assertTrue(goods.containsAll(filteredGoods), "Assert that all the products with corresponded prices are selected");
+        Assert.assertTrue(goods.size() == filteredGoods.size(), "Check that there are no extra items");
         return new PnWashersHelper(driver);
     }
 

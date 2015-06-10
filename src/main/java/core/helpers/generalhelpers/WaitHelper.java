@@ -10,19 +10,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-
 /**
- * Created by Anton_Savostytskyi on 02.06.2015.
+ * @author Anton_Savostytskyi on 02.06.2015.
  */
+
 public class WaitHelper {
 
-    public static final int HALF_SECOND_DELAY = 500;
-    public static final int SECOND_DELAY = 1000;
     public static final int SMALL_DELAY = 5000;
     public static final int MIDDLE_DELAY = 15000;
-    public static final int LONG_DELAY = 30000;
     private static Logger logger = Logger.getLogger(WaitHelper.class);
-    
+
     public static void waitForElementIsClickable(WebElement webElement, WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, SMALL_DELAY);
         try {
@@ -46,7 +43,7 @@ public class WaitHelper {
     }
 
     public static void waitForElements(List<WebElement> listWebElements, WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, SMALL_DELAY);
+        WebDriverWait wait = new WebDriverWait(driver, MIDDLE_DELAY);
         try {
             wait.until(ExpectedConditions.visibilityOfAllElements(listWebElements));
         } catch (NoSuchElementException e) {
